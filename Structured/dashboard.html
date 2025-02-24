@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background: #007bff;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">Admin Dashboard</div>
+
+    <div class="container">
+        <div class="section">
+            <h3>Gallery Management</h3>
+            <button onclick="alert('Add Image')">Add Image</button>
+            <button onclick="alert('Update Image')">Update Image</button>
+            <button onclick="alert('Delete Image')">Delete Image</button>
+        </div>
+
+        <div class="section">
+            <h3>Users Management</h3>
+            <button onclick="alert('Add User')">Add User</button>
+            <button onclick="alert('Update User')">Update User</button>
+            <button onclick="alert('Delete User')">Delete User</button>
+        </div>
+
+        <!-- Extra Feature: Reviews Management -->
+        <div class="section">
+            <h3>Reviews Management</h3>
+            <button onclick="alert('View Reviews')">View Reviews</button>
+            <button onclick="alert('Delete Review')">Delete Review</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
