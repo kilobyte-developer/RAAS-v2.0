@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return "";
     }
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const errors = [
@@ -58,8 +58,34 @@ document.addEventListener("DOMContentLoaded", function () {
         if (errors.length > 0) {
             alert("Registration failed:\n\n" + errors.join("\n"));
         } else {
-            alert("Registration successful!");
-            form.submit();
+            const userData = {
+                name: nameInput.value.trim(),
+                mobile: mobInput.value.trim(),
+                age: ageInput.value.trim(),
+                email: emailInput.value.trim(),
+                password: passwordInput.value.trim(),
+            };
+
+            try {
+                const response = await fetch("http://localhost:5000/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(userData),
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert("Registration successful!");
+                    form.reset();
+                } else {
+                    alert("Registration failed: " + data.message);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Registration failed due to a server error.");
+            }
         }
     });
 });
